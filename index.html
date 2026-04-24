@@ -10,169 +10,171 @@
   --green:#2d6a4f;--green-light:#52b788;--green-pale:#d8f3dc;
   --orange:#e76f51;--orange-light:#f4a261;--orange-pale:#fde8dc;
   --purple:#7b2d8b;--purple-light:#c77dff;--purple-pale:#f0d9f7;
-  --cream:#fdf6ec;--dark:#1a1a2e;--text:#2c2c2c;--text-light:#666;
+  --blue:#0077b6;--blue-pale:#dbeafe;
+  --yellow:#f9c74f;--yellow-pale:#fff8d6;
+  --cream:#fffdf7;--dark:#131313;--text:#2a2a2a;--text-light:#777;
 }
 html{scroll-behavior:smooth;}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);background:var(--cream);overflow-x:hidden;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem;background:rgba(253,246,236,0.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);transition:box-shadow .3s;}
-.nav-logo{font-size:1.5rem;font-weight:900;color:var(--dark);letter-spacing:-1px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;background:rgba(255,253,247,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.05);transition:box-shadow .3s;}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07);}
+.nav-logo{font-size:1.6rem;font-weight:900;color:var(--dark);letter-spacing:-1px;}
 .nav-logo span{color:var(--orange);}
-.nav-links{display:flex;gap:2.5rem;list-style:none;}
-.nav-links a{text-decoration:none;color:var(--text-light);font-size:.9rem;font-weight:500;letter-spacing:.3px;transition:color .2s;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--text-light);font-size:.9rem;font-weight:500;transition:color .2s;}
 .nav-links a:hover{color:var(--dark);}
-.nav-cta{background:var(--dark);color:#fff;border:none;padding:.65rem 1.5rem;border-radius:4px;font-weight:600;font-size:.88rem;letter-spacing:.3px;cursor:pointer;transition:background .2s;}
-.nav-cta:hover{background:var(--green);}
+.nav-cta{background:var(--dark);color:#fff;border:none;padding:.65rem 1.5rem;border-radius:50px;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .2s;}
+.nav-cta:hover{background:var(--orange);transform:translateY(-1px);}
 
 /* HERO */
-#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden;background:linear-gradient(160deg,#d8f3dc 0%,#fde8dc 55%,#f0d9f7 100%);}
-.hero-blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;animation:floatBlob 7s ease-in-out infinite;}
-.blob1{width:500px;height:500px;background:var(--green-light);top:-100px;left:-150px;}
-.blob2{width:400px;height:400px;background:var(--orange-light);bottom:-80px;right:-100px;animation-delay:2.5s;}
-.blob3{width:300px;height:300px;background:var(--purple-light);top:25%;left:58%;animation-delay:5s;}
-@keyframes floatBlob{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-28px) scale(1.04);}}
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden;background:linear-gradient(160deg,#d8f3dc 0%,#fde8dc 50%,#f0d9f7 100%);}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;animation:floatBlob 7s ease-in-out infinite;pointer-events:none;}
+.blob1{width:500px;height:500px;background:var(--green-light);top:-120px;left:-150px;}
+.blob2{width:420px;height:420px;background:var(--orange-light);bottom:-100px;right:-120px;animation-delay:2.5s;}
+.blob3{width:320px;height:320px;background:var(--purple-light);top:20%;left:55%;animation-delay:5s;}
+@keyframes floatBlob{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-28px) scale(1.05);}}
 .hero-eyebrow{font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:1.8rem;opacity:0;animation:fadeUp .8s .2s forwards;}
 .hero-title{font-size:clamp(3.5rem,9vw,7rem);font-weight:900;line-height:.95;color:var(--dark);letter-spacing:-3px;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .4s forwards;}
 .hero-title .accent{color:var(--orange);}
-.hero-sub{font-size:1.1rem;color:var(--text-light);max-width:480px;line-height:1.75;margin:0 auto 1.8rem;font-weight:400;opacity:0;animation:fadeUp .8s .6s forwards;}
-.hero-pills{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;opacity:0;animation:fadeUp .8s .7s forwards;}
-.pill{background:rgba(255,255,255,.65);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.9);padding:.4rem 1.1rem;border-radius:2px;font-size:.82rem;font-weight:600;color:var(--dark);letter-spacing:.5px;}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .9s forwards;}
-.btn-primary{background:var(--orange);color:#fff;padding:.95rem 2.2rem;border-radius:4px;font-weight:700;font-size:.95rem;letter-spacing:.3px;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(231,111,81,.35);}
-.btn-outline{background:transparent;color:var(--dark);padding:.95rem 2.2rem;border-radius:4px;font-weight:600;font-size:.95rem;border:1.5px solid rgba(0,0,0,.25);cursor:pointer;transition:all .2s;}
+.hero-sub{font-size:1.1rem;color:var(--text-light);max-width:500px;line-height:1.8;margin:0 auto 3rem;opacity:0;animation:fadeUp .8s .6s forwards;}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .8s forwards;}
+.btn-primary{background:var(--orange);color:#fff;padding:1rem 2.2rem;border-radius:50px;font-weight:700;font-size:.95rem;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(231,111,81,.35);}
+.btn-outline{background:transparent;color:var(--dark);padding:1rem 2.2rem;border-radius:50px;font-weight:600;font-size:.95rem;border:1.5px solid rgba(0,0,0,.2);cursor:pointer;transition:all .2s;}
 .btn-outline:hover{border-color:var(--dark);background:var(--dark);color:#fff;}
-.hero-scroll-ind{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.5;animation:bounceInd 2s infinite;}
-@keyframes bounceInd{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
-.scroll-bar{width:2px;height:36px;background:linear-gradient(to bottom,var(--dark),transparent);border-radius:2px;}
-.scroll-nub{width:8px;height:8px;border:2px solid var(--dark);border-radius:50%;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;}
+.scroll-ring{width:28px;height:28px;border:2px solid rgba(0,0,0,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:bounceRing 2s infinite;}
+.scroll-ring::after{content:'';width:6px;height:6px;background:var(--orange);border-radius:50%;}
+@keyframes bounceRing{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
 
-/* INTRO STRIP */
-#intro-strip{background:var(--dark);padding:1.4rem 3rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;}
-.strip-item{color:rgba(255,255,255,.6);font-size:.82rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;}
-.strip-dot{width:4px;height:4px;border-radius:50%;background:var(--orange);opacity:.6;}
+/* FOOD SECTION */
+#food{padding:8rem 2rem;background:#fff;}
+.food-header{text-align:center;margin-bottom:5rem;}
+.section-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:1rem;}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.05;letter-spacing:-2px;color:var(--dark);margin-bottom:1rem;}
+.section-sub{color:var(--text-light);line-height:1.8;font-size:1rem;max-width:500px;margin:0 auto;}
+.food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto;}
+.food-card{border-radius:20px;padding:2.5rem 1.8rem;cursor:default;transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s;position:relative;overflow:hidden;}
+.food-card:hover{transform:translateY(-10px) rotate(.8deg);box-shadow:0 24px 50px rgba(0,0,0,.13);}
+.food-card-origin{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:.7;margin-bottom:1.2rem;}
+.food-card h3{font-size:1.5rem;font-weight:900;letter-spacing:-1px;margin-bottom:.6rem;}
+.food-card p{font-size:.88rem;opacity:.75;line-height:1.6;}
+.food-card-shine{position:absolute;top:-60px;right:-60px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.15);}
+.card-african{background:linear-gradient(135deg,#1a5c3a,#52b788);color:#fff;}
+.card-acai{background:linear-gradient(135deg,#5c1a8b,#c77dff);color:#fff;}
+.card-poke{background:linear-gradient(135deg,#00567a,#48cae4);color:#fff;}
+.card-mexican{background:linear-gradient(135deg,#c44b28,#f4a261);color:#fff;}
+.card-pasta{background:linear-gradient(135deg,#7a3410,#f9c74f);color:#fff;}
 
-/* CUISINE SECTION */
-#cuisine{padding:8rem 3rem;background:#fff;}
-.cuisine-header{max-width:600px;margin:0 auto 5rem;text-align:center;}
-.section-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:1rem;}
-.section-title{font-size:clamp(2rem,4vw,2.8rem);font-weight:900;line-height:1.1;letter-spacing:-1.5px;color:var(--dark);margin-bottom:1rem;}
-.section-sub{color:var(--text-light);line-height:1.75;font-size:1rem;}
-.cuisine-list{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:0;}
-.cuisine-item{display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:2rem;padding:2.2rem 0;border-bottom:1px solid rgba(0,0,0,.07);cursor:default;transition:background .2s;position:relative;}
-.cuisine-item:first-child{border-top:1px solid rgba(0,0,0,.07);}
-.cuisine-num{font-size:.72rem;font-weight:700;letter-spacing:2px;color:var(--text-light);}
-.cuisine-info h3{font-size:1.3rem;font-weight:800;color:var(--dark);letter-spacing:-.5px;margin-bottom:.3rem;transition:color .3s;}
-.cuisine-info p{font-size:.9rem;color:var(--text-light);line-height:1.6;}
-.cuisine-tag{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:.35rem .9rem;border-radius:2px;white-space:nowrap;}
-.tag-african{background:var(--green-pale);color:var(--green);}
-.tag-acai{background:var(--purple-pale);color:var(--purple);}
-.tag-poke{background:#dbeafe;color:#1e40af;}
-.tag-mexican{background:var(--orange-pale);color:var(--terracotta,#c4532a);}
-.tag-pasta{background:#fef9c3;color:#854d0e;}
-.cuisine-item::after{content:'';position:absolute;left:0;bottom:-1px;width:0;height:2px;background:var(--orange);transition:width .4s ease;}
-.cuisine-item:hover::after{width:100%;}
-.cuisine-item:hover .cuisine-info h3{color:var(--orange);}
+/* CONCEPT */
+#concept{padding:8rem 2rem;background:var(--cream);}
+.concept-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.concept-text .section-eyebrow{color:var(--orange);}
+.concept-text p{color:var(--text-light);line-height:1.9;font-size:1rem;margin-bottom:1.2rem;}
+.concept-visual{background:linear-gradient(135deg,var(--green-pale),var(--orange-pale));border-radius:24px;padding:3rem;display:flex;flex-direction:column;gap:1.2rem;}
+.event-chip{background:#fff;border-radius:50px;padding:.8rem 1.4rem;font-size:.88rem;font-weight:600;color:var(--dark);display:flex;align-items:center;gap:.7rem;box-shadow:0 4px 16px rgba(0,0,0,.07);transition:transform .25s;}
+.event-chip:hover{transform:translateX(6px);}
+.chip-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.dot-g{background:var(--green-light);}
+.dot-o{background:var(--orange);}
+.dot-p{background:var(--purple-light);}
+.dot-b{background:var(--blue);}
+.dot-y{background:var(--yellow);}
+.concept-visual-label{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:.5rem;}
 
 /* CATERING */
-#catering{padding:8rem 3rem;background:var(--cream);}
-.catering-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+#catering{padding:8rem 2rem;background:#fff;}
+.catering-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
 .catering-text .section-eyebrow{color:var(--green);}
-.catering-text p{color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;font-size:.98rem;}
-.catering-features{display:flex;flex-direction:column;gap:.8rem;margin:2rem 0 2.5rem;}
-.feature{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.3rem;background:#fff;border-radius:4px;border-left:3px solid var(--green);}
-.feature-icon{font-size:1rem;min-width:20px;margin-top:1px;}
-.feature div h4{font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:.2rem;}
-.feature div p{font-size:.83rem;color:var(--text-light);line-height:1.5;margin:0;}
-.catering-visual{position:relative;}
-.catering-card{background:linear-gradient(135deg,#2d6a4f,#52b788);border-radius:8px;padding:3rem;color:#fff;}
-.catering-card h3{font-size:1.8rem;font-weight:900;letter-spacing:-1px;margin-bottom:1rem;line-height:1.1;}
-.catering-card p{opacity:.85;line-height:1.7;font-size:.95rem;margin-bottom:2rem;}
-.catering-card-tag{display:inline-block;background:rgba(255,255,255,.2);padding:.4rem 1rem;border-radius:2px;font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
-.floating-badge{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--orange);color:#fff;padding:1.2rem 1.5rem;border-radius:4px;text-align:center;}
-.floating-badge strong{font-size:1.6rem;font-weight:900;display:block;line-height:1;}
-.floating-badge span{font-size:.72rem;letter-spacing:1px;text-transform:uppercase;opacity:.9;}
+.catering-text p{color:var(--text-light);line-height:1.9;font-size:1rem;margin-bottom:1.2rem;}
+.catering-features{display:flex;flex-direction:column;gap:.8rem;margin:1.5rem 0 2.5rem;}
+.cat-feat{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.3rem;background:var(--cream);border-radius:10px;border-left:3px solid var(--green);}
+.cat-feat:nth-child(2){border-left-color:var(--orange);}
+.cat-feat:nth-child(3){border-left-color:var(--purple);}
+.cat-feat:nth-child(4){border-left-color:var(--yellow);}
+.cat-feat h4{font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:.2rem;}
+.cat-feat p{font-size:.8rem;color:var(--text-light);margin:0;line-height:1.5;}
+.catering-cards{display:flex;flex-direction:column;gap:1.2rem;}
+.cat-big{background:linear-gradient(135deg,var(--green),var(--green-light));border-radius:16px;padding:2.5rem;color:#fff;}
+.cat-big h3{font-size:1.5rem;font-weight:900;letter-spacing:-1px;margin-bottom:.7rem;line-height:1.1;}
+.cat-big p{opacity:.8;line-height:1.7;font-size:.92rem;}
+.cat-smalls{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.cat-sm{border-radius:12px;padding:1.4rem;border-top:3px solid var(--orange);}
+.cat-sm:first-child{background:var(--orange-pale);}
+.cat-sm:last-child{background:var(--purple-pale);border-top-color:var(--purple);}
+.cat-sm h4{font-size:.9rem;font-weight:800;color:var(--dark);margin-bottom:.3rem;}
+.cat-sm p{font-size:.78rem;color:var(--text-light);line-height:1.5;}
 
 /* HOW IT WORKS */
-#how{padding:8rem 3rem;background:#fff;}
+#how{padding:8rem 2rem;background:var(--cream);}
 .how-inner{max-width:1000px;margin:0 auto;}
 .how-header{text-align:center;margin-bottom:5rem;}
-.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
-.step-card{padding:2.5rem;background:var(--cream);border-radius:4px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s;}
-.step-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.08);}
-.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);}
+.how-header .section-eyebrow{color:var(--purple);}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.step-card{background:#fff;border-radius:16px;padding:2.5rem;transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
+.step-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.08);}
+.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:16px 16px 0 0;}
+.step-card:nth-child(1)::before{background:var(--green);}
 .step-card:nth-child(2)::before{background:var(--orange);}
 .step-card:nth-child(3)::before{background:var(--purple);}
-.step-n{font-size:3rem;font-weight:900;color:rgba(0,0,0,.06);letter-spacing:-2px;margin-bottom:1rem;line-height:1;}
-.step-card h4{font-size:1.05rem;font-weight:800;color:var(--dark);margin-bottom:.7rem;letter-spacing:-.3px;}
-.step-card p{font-size:.88rem;color:var(--text-light);line-height:1.7;}
+.step-n{font-size:3.5rem;font-weight:900;letter-spacing:-3px;margin-bottom:1.2rem;line-height:1;color:rgba(0,0,0,.06);}
+.step-card h4{font-size:1rem;font-weight:800;color:var(--dark);margin-bottom:.6rem;}
+.step-card p{font-size:.87rem;color:var(--text-light);line-height:1.75;}
 
 /* QUOTE */
-#quote{padding:8rem 3rem;background:linear-gradient(140deg,var(--dark) 0%,#16213e 100%);}
+#quote{padding:8rem 2rem;background:linear-gradient(160deg,var(--green-pale) 0%,var(--orange-pale) 60%,var(--purple-pale) 100%);}
 .quote-inner{max-width:680px;margin:0 auto;}
 .quote-header{text-align:center;margin-bottom:3.5rem;}
-.quote-header .section-eyebrow{color:var(--orange-light);}
-.quote-header .section-title{color:#fff;}
-.quote-header .section-sub{color:rgba(255,255,255,.55);margin:0 auto;}
-.quote-form{display:flex;flex-direction:column;gap:1.1rem;}
+.quote-header .section-eyebrow{color:var(--orange);}
+.qform{background:#fff;border-radius:20px;padding:2.5rem;box-shadow:0 20px 60px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:1rem;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.form-group{display:flex;flex-direction:column;gap:.4rem;}
-.form-group label{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:1.5px;text-transform:uppercase;}
-.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:.9rem 1.1rem;color:#fff;font-size:.92rem;font-family:inherit;transition:border-color .2s,background .2s;}
-.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.3);}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:rgba(244,162,97,.6);background:rgba(255,255,255,.1);}
-.form-group select option{background:#16213e;}
-.form-group textarea{resize:vertical;min-height:100px;}
-.submit-btn{background:var(--orange);color:#fff;border:none;padding:1.1rem;border-radius:4px;font-size:.95rem;font-weight:700;letter-spacing:.5px;cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:.5rem;}
-.submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(231,111,81,.45);}
-.form-success{display:none;text-align:center;padding:3rem 2rem;}
-.form-success h3{color:#fff;font-size:1.6rem;font-weight:900;margin-bottom:.8rem;}
-.form-success p{color:rgba(255,255,255,.6);line-height:1.7;}
+.fg{display:flex;flex-direction:column;gap:.4rem;}
+.fg label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);}
+.fg input,.fg select,.fg textarea{background:var(--cream);border:1.5px solid #ebe8e0;border-radius:8px;padding:.9rem 1.1rem;color:var(--dark);font-size:.92rem;font-family:inherit;transition:border-color .2s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--orange);}
+.fg textarea{resize:vertical;min-height:100px;}
+.submit-btn{background:var(--orange);color:#fff;border:none;padding:1.1rem;border-radius:50px;font-size:.95rem;font-weight:800;cursor:pointer;transition:all .2s;margin-top:.3rem;}
+.submit-btn:hover{background:var(--green);transform:translateY(-2px);box-shadow:0 10px 28px rgba(44,107,79,.3);}
+.form-success{display:none;text-align:center;padding:3rem 2rem;background:#fff;border-radius:20px;}
+.form-success h3{font-size:1.5rem;font-weight:900;color:var(--dark);margin-bottom:.8rem;}
+.form-success p{color:var(--text-light);line-height:1.7;}
 
 /* FOOTER */
-footer{background:#0f0f1a;color:rgba(255,255,255,.4);padding:3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;}
-.footer-logo{font-size:1.3rem;font-weight:900;color:rgba(255,255,255,.7);letter-spacing:-1px;}
-.footer-logo span{color:var(--orange);}
-.footer-mid{text-align:center;font-size:.82rem;line-height:1.8;}
+footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;}
+.footer-logo{font-size:1.4rem;font-weight:900;color:#fff;letter-spacing:-1px;}
+.footer-logo span{color:var(--orange-light);}
+.footer-mid{font-size:.82rem;color:rgba(255,255,255,.35);text-align:center;line-height:1.9;}
 .footer-links{display:flex;gap:1.5rem;}
-.footer-links a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.3px;transition:color .2s;}
-.footer-links a:hover{color:rgba(255,255,255,.8);}
+.footer-links a{color:rgba(255,255,255,.3);text-decoration:none;font-size:.8rem;font-weight:500;transition:color .2s;}
+.footer-links a:hover{color:var(--orange-light);}
 
-/* SCROLL ANIMATIONS */
-.reveal{opacity:0;transform:translateY(36px);transition:opacity .75s ease,transform .75s ease;}
-.reveal.up{opacity:1;transform:translateY(0);}
-.reveal-l{opacity:0;transform:translateX(-36px);transition:opacity .75s ease,transform .75s ease;}
-.reveal-l.up{opacity:1;transform:translateX(0);}
-.reveal-r{opacity:0;transform:translateX(36px);transition:opacity .75s ease,transform .75s ease;}
-.reveal-r.up{opacity:1;transform:translateX(0);}
+/* ANIMATIONS */
+.s-up{opacity:0;transform:translateY(44px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
+.s-left{opacity:0;transform:translateX(-44px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
+.s-right{opacity:0;transform:translateX(44px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
+.in{opacity:1 !important;transform:none !important;}
 
-/* PARALLAX SECTION DIVIDER */
-.divider{height:3px;background:linear-gradient(90deg,var(--green),var(--orange),var(--purple));transform-origin:left;transform:scaleX(0);transition:transform 1s ease;}
-.divider.up{transform:scaleX(1);}
-
-@media(max-width:768px){
+@media(max-width:800px){
   nav{padding:1rem 1.5rem;}
   .nav-links{display:none;}
-  #intro-strip{gap:1.5rem;padding:1.2rem 1.5rem;}
-  #cuisine,#catering,#how,#quote{padding:5rem 1.5rem;}
-  .catering-inner{grid-template-columns:1fr;}
-  .steps-grid{grid-template-columns:1fr;}
-  .form-row{grid-template-columns:1fr;}
-  footer{flex-direction:column;text-align:center;}
-  .floating-badge{position:static;margin-top:1.5rem;display:inline-block;}
+  #food,#concept,#catering,#how,#quote{padding:5rem 1.5rem;}
+  .concept-inner,.catering-inner{grid-template-columns:1fr;}
+  .steps-grid,.cat-smalls,.form-row{grid-template-columns:1fr;}
+  footer{flex-direction:column;text-align:center;padding:2rem 1.5rem;}
 }
 </style>
 </head>
 <body>
 
-<nav>
+<nav id="navbar">
   <div class="nav-logo">B<span>o</span>wld</div>
   <ul class="nav-links">
-    <li><a href="#cuisine">Our Food</a></li>
+    <li><a href="#food">Our Food</a></li>
+    <li><a href="#concept">Our Story</a></li>
     <li><a href="#catering">Catering</a></li>
-    <li><a href="#how">How It Works</a></li>
     <li><a href="#quote">Get a Quote</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Book Your Event</button>
@@ -183,154 +185,134 @@ footer{background:#0f0f1a;color:rgba(255,255,255,.4);padding:3rem;display:flex;a
   <div class="hero-blob blob1"></div>
   <div class="hero-blob blob2"></div>
   <div class="hero-blob blob3"></div>
-  <div class="hero-eyebrow">Food Truck &nbsp;·&nbsp; Events &nbsp;·&nbsp; Catering</div>
+  <div class="hero-eyebrow">Food Truck &nbsp;·&nbsp; Events &nbsp;·&nbsp; Catering &nbsp;·&nbsp; Mechelen</div>
   <h1 class="hero-title">Bold Flavours.<br><span class="accent">Fresh Bowls.</span></h1>
-  <p class="hero-sub">We bring world-class street food to your event. Five cuisines, one truck, an experience your guests will not forget.</p>
-  <div class="hero-pills">
-    <div class="pill">African</div>
-    <div class="pill">Açaí</div>
-    <div class="pill">Poké</div>
-    <div class="pill">Mexican</div>
-    <div class="pill">Pasta</div>
-  </div>
+  <p class="hero-sub">Hire our food truck for your event and treat your guests to world-class street food — freshly made on the spot, five cuisines, one unforgettable experience.</p>
   <div class="hero-btns">
-    <button class="btn-primary" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Request a Quote</button>
-    <button class="btn-outline" onclick="document.getElementById('cuisine').scrollIntoView({behavior:'smooth'})">Explore Our Food</button>
+    <button class="btn-primary" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
+    <button class="btn-outline" onclick="document.getElementById('food').scrollIntoView({behavior:'smooth'})">Discover Our Food</button>
   </div>
-  <div class="hero-scroll-ind"><div class="scroll-nub"></div><div class="scroll-bar"></div></div>
+  <div class="hero-scroll"><div class="scroll-ring"></div></div>
 </section>
 
-<!-- STRIP -->
-<div id="intro-strip">
-  <span class="strip-item">Based in Mechelen</span>
-  <div class="strip-dot"></div>
-  <span class="strip-item">Belgium-wide</span>
-  <div class="strip-dot"></div>
-  <span class="strip-item">Weddings</span>
-  <div class="strip-dot"></div>
-  <span class="strip-item">Corporate Events</span>
-  <div class="strip-dot"></div>
-  <span class="strip-item">Festivals</span>
-  <div class="strip-dot"></div>
-  <span class="strip-item">Private Parties</span>
-</div>
-
-<!-- CUISINE -->
-<section id="cuisine">
-  <div class="cuisine-header reveal">
-    <div class="section-eyebrow">What We Serve</div>
-    <h2 class="section-title">Five Cuisines, One Truck</h2>
-    <p class="section-sub">Every dish is crafted fresh using quality ingredients, inspired by the world's most vibrant food cultures.</p>
+<!-- FOOD -->
+<section id="food">
+  <div class="food-header s-up">
+    <div class="section-eyebrow" style="color:var(--orange)">What We Serve</div>
+    <h2 class="section-title">Five Worlds of Flavour</h2>
+    <p class="section-sub">Every dish crafted fresh using quality ingredients, inspired by the world's most vibrant food cultures.</p>
   </div>
-  <div class="cuisine-list">
-    <div class="cuisine-item reveal" style="transition-delay:.05s">
-      <div class="cuisine-num">01</div>
-      <div class="cuisine-info">
-        <h3>African</h3>
-        <p>Bold spices, slow-cooked proteins and vibrant sauces rooted in West African culinary tradition.</p>
-      </div>
-      <div class="cuisine-tag tag-african">Africa</div>
+  <div class="food-grid">
+    <div class="food-card card-african s-up" style="transition-delay:.05s">
+      <div class="food-card-shine"></div>
+      <div class="food-card-origin">West Africa</div>
+      <h3>African</h3>
+      <p>Bold spices, slow-cooked proteins and vibrant sauces rooted in West African culinary tradition.</p>
     </div>
-    <div class="cuisine-item reveal" style="transition-delay:.1s">
-      <div class="cuisine-num">02</div>
-      <div class="cuisine-info">
-        <h3>Açaí</h3>
-        <p>Fresh açaí bowls built with tropical fruits, house-made granola and natural, wholesome toppings.</p>
-      </div>
-      <div class="cuisine-tag tag-acai">Brazil</div>
+    <div class="food-card card-acai s-up" style="transition-delay:.12s">
+      <div class="food-card-shine"></div>
+      <div class="food-card-origin">Brazil</div>
+      <h3>Açaí</h3>
+      <p>Fresh açaí bowls built with tropical fruits, house-made granola and natural wholesome toppings.</p>
     </div>
-    <div class="cuisine-item reveal" style="transition-delay:.15s">
-      <div class="cuisine-num">03</div>
-      <div class="cuisine-info">
-        <h3>Poké</h3>
-        <p>Hawaiian-inspired bowls with seasoned rice, fresh ingredients and umami-rich house sauces.</p>
-      </div>
-      <div class="cuisine-tag tag-poke">Hawaii</div>
+    <div class="food-card card-poke s-up" style="transition-delay:.19s">
+      <div class="food-card-shine"></div>
+      <div class="food-card-origin">Hawaii</div>
+      <h3>Poké</h3>
+      <p>Hawaiian-inspired bowls with seasoned rice, fresh ingredients and umami-rich house sauces.</p>
     </div>
-    <div class="cuisine-item reveal" style="transition-delay:.2s">
-      <div class="cuisine-num">04</div>
-      <div class="cuisine-info">
-        <h3>Mexican</h3>
-        <p>Handcrafted tacos, burritos and salsas made with authentic Mexican flavour and quality produce.</p>
-      </div>
-      <div class="cuisine-tag tag-mexican">Mexico</div>
+    <div class="food-card card-mexican s-up" style="transition-delay:.26s">
+      <div class="food-card-shine"></div>
+      <div class="food-card-origin">Mexico</div>
+      <h3>Mexican</h3>
+      <p>Handcrafted tacos, burritos and salsas made with authentic Mexican flavour and quality produce.</p>
     </div>
-    <div class="cuisine-item reveal" style="transition-delay:.25s">
-      <div class="cuisine-num">05</div>
-      <div class="cuisine-info">
-        <h3>Pasta</h3>
-        <p>Classic and creative pasta dishes, freshly prepared with care and high-quality Italian inspiration.</p>
-      </div>
-      <div class="cuisine-tag tag-pasta">Italy</div>
+    <div class="food-card card-pasta s-up" style="transition-delay:.33s">
+      <div class="food-card-shine"></div>
+      <div class="food-card-origin">Italy</div>
+      <h3>Pasta</h3>
+      <p>Classic and creative pasta dishes, freshly prepared with care and high-quality Italian inspiration.</p>
     </div>
   </div>
 </section>
 
-<div class="divider reveal"></div>
+<!-- CONCEPT -->
+<section id="concept">
+  <div class="concept-inner">
+    <div class="s-left">
+      <div class="section-eyebrow" style="color:var(--orange)">Who We Are</div>
+      <h2 class="section-title">Your event deserves exceptional food.</h2>
+      <p>Bowld is a food truck based in Mechelen that brings the world's most vibrant cuisines straight to your event. Whether it's a wedding, corporate gathering, festival or birthday — we show up fully equipped and ready to deliver an experience your guests will remember.</p>
+      <p>No catering stress, no compromises. Just fresh, bold food served with care — exactly where you need it.</p>
+      <button class="btn-primary" style="margin-top:1.5rem;" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Book Your Event</button>
+    </div>
+    <div class="s-right">
+      <div class="concept-visual">
+        <div class="concept-visual-label">Perfect for every occasion</div>
+        <div class="event-chip"><div class="chip-dot dot-g"></div>Wedding & Civil Celebrations</div>
+        <div class="event-chip"><div class="chip-dot dot-o"></div>Corporate Events & Team Days</div>
+        <div class="event-chip"><div class="chip-dot dot-p"></div>Birthday & Private Parties</div>
+        <div class="event-chip"><div class="chip-dot dot-b"></div>Festivals & Markets</div>
+        <div class="event-chip"><div class="chip-dot dot-y"></div>Baby Showers & Family Days</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CATERING -->
 <section id="catering">
   <div class="catering-inner">
-    <div class="reveal-l">
-      <div class="section-eyebrow">Catering</div>
+    <div class="s-left">
+      <div class="section-eyebrow" style="color:var(--green)">Catering</div>
       <h2 class="section-title">Turn Every Moment Into a Flavorful Experience</h2>
       <p>Whether you're planning a corporate event, birthday, baby shower or wedding — Bowld delivers fresh, vibrant catering that truly stands out.</p>
-      <p>Our dishes are thoughtfully curated and perfect for sharing. Everything is prepared fresh daily using quality ingredients and presented in a way that delights your guests from the first look to the last bite.</p>
+      <p>Our dishes are thoughtfully curated, prepared daily with quality ingredients and perfect for sharing.</p>
       <div class="catering-features">
-        <div class="feature">
-          <div class="feature-icon">—</div>
-          <div><h4>Fresh & Homemade</h4><p>Every dish prepared daily with care and quality ingredients.</p></div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">—</div>
-          <div><h4>Fully Flexible</h4><p>We tailor our offering to the size, style and mood of your event.</p></div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">—</div>
-          <div><h4>Any Occasion</h4><p>From intimate gatherings to large-scale festivals — we handle it all.</p></div>
-        </div>
+        <div class="cat-feat"><div><h4>Fresh & Homemade</h4><p>Every dish prepared daily with care and quality ingredients.</p></div></div>
+        <div class="cat-feat"><div><h4>Fully Flexible</h4><p>Tailored to the size, style and mood of your event.</p></div></div>
+        <div class="cat-feat"><div><h4>Any Occasion</h4><p>From intimate gatherings to large-scale festivals — we handle it all.</p></div></div>
+        <div class="cat-feat"><div><h4>Easy & Convenient</h4><p>We handle everything — you just enjoy the experience.</p></div></div>
       </div>
       <button class="btn-primary" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Request a Quote</button>
     </div>
-    <div class="reveal-r" style="padding-bottom:2rem;">
-      <div class="catering-card">
-        <h3>Big or small, we show up for it all.</h3>
-        <p>Tell us what you have in mind and we'll create a catering experience that perfectly matches your guests and occasion.</p>
-        <div class="catering-card-tag">Bowld Catering</div>
-      </div>
-      <div class="floating-badge">
-        <strong>24h</strong>
-        <span>Quote turnaround</span>
+    <div class="s-right">
+      <div class="catering-cards">
+        <div class="cat-big">
+          <h3>Big or small, we show up for it all.</h3>
+          <p>Tell us what you have in mind and we'll create a catering experience that perfectly matches your guests and occasion.</p>
+        </div>
+        <div class="cat-smalls">
+          <div class="cat-sm"><h4>Weddings</h4><p>Make your special day even more memorable with vibrant food.</p></div>
+          <div class="cat-sm"><h4>Corporate</h4><p>Impress your team and clients with something beyond the ordinary.</p></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider reveal"></div>
-
 <!-- HOW IT WORKS -->
 <section id="how">
   <div class="how-inner">
-    <div class="how-header reveal">
-      <div class="section-eyebrow">The Process</div>
+    <div class="how-header s-up">
+      <div class="section-eyebrow" style="color:var(--purple)">The Process</div>
       <h2 class="section-title">Ready in Three Steps</h2>
       <p class="section-sub">Booking Bowld for your event is effortless. We handle everything — you just enjoy the experience.</p>
     </div>
     <div class="steps-grid">
-      <div class="step-card reveal" style="transition-delay:.05s">
+      <div class="step-card s-up" style="transition-delay:.05s">
         <div class="step-n">01</div>
         <h4>Tell Us About Your Event</h4>
-        <p>Fill in our quick quote form — event type, date, location and number of guests. Takes under two minutes.</p>
+        <p>Fill in our quick quote form with your event type, date, location and number of guests. Takes under two minutes.</p>
       </div>
-      <div class="step-card reveal" style="transition-delay:.15s">
+      <div class="step-card s-up" style="transition-delay:.15s">
         <div class="step-n">02</div>
         <h4>We Send a Custom Quote</h4>
-        <p>Our team reviews your request and gets back to you within 24 hours with a tailored proposal.</p>
+        <p>Our team reviews your request and gets back to you within 24 hours with a tailored, no-strings proposal.</p>
       </div>
-      <div class="step-card reveal" style="transition-delay:.25s">
+      <div class="step-card s-up" style="transition-delay:.25s">
         <div class="step-n">03</div>
         <h4>We Show Up and Serve</h4>
-        <p>On the day, we arrive fully equipped and ready to serve your guests with world-class street food.</p>
+        <p>On the day we arrive fully equipped and ready to serve your guests with fresh, world-class street food.</p>
       </div>
     </div>
   </div>
@@ -339,62 +321,38 @@ footer{background:#0f0f1a;color:rgba(255,255,255,.4);padding:3rem;display:flex;a
 <!-- QUOTE -->
 <section id="quote">
   <div class="quote-inner">
-    <div class="quote-header reveal">
+    <div class="quote-header s-up">
       <div class="section-eyebrow">Get a Quote</div>
       <h2 class="section-title">Let's Make Your Event Unforgettable</h2>
-      <p class="section-sub">Fill in a few details and we'll come back to you with a custom offer — fast, easy, no strings attached.</p>
+      <p class="section-sub" style="color:var(--text-light);max-width:460px;margin:0 auto;">Fill in a few details and we'll come back to you within 24 hours with a custom offer — fast, easy and free.</p>
     </div>
-    <div class="quote-form reveal" id="quoteForm">
+    <div class="qform s-up" id="quoteForm">
       <div class="form-row">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" id="fname" placeholder="Jane Doe"/>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" id="femail" placeholder="jane@example.com"/>
-        </div>
+        <div class="fg"><label>Your Name</label><input type="text" id="fname" placeholder="Jane Doe"/></div>
+        <div class="fg"><label>Email Address</label><input type="email" id="femail" placeholder="jane@example.com"/></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
+        <div class="fg">
           <label>Event Type</label>
           <select id="ftype">
             <option value="">Select type...</option>
-            <option>Wedding</option>
-            <option>Corporate Event</option>
-            <option>Birthday Party</option>
-            <option>Baby Shower</option>
-            <option>Festival</option>
-            <option>Market / Fair</option>
-            <option>Other</option>
+            <option>Wedding</option><option>Corporate Event</option><option>Birthday Party</option>
+            <option>Baby Shower</option><option>Festival</option><option>Market / Fair</option><option>Other</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>Event Date</label>
-          <input type="date" id="fdate"/>
-        </div>
+        <div class="fg"><label>Event Date</label><input type="date" id="fdate"/></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Location</label>
-          <input type="text" id="floc" placeholder="City or address"/>
-        </div>
-        <div class="form-group">
+        <div class="fg"><label>Location</label><input type="text" id="floc" placeholder="City or address"/></div>
+        <div class="fg">
           <label>Expected Guests</label>
           <select id="fguests">
             <option value="">How many people?</option>
-            <option>Under 50</option>
-            <option>50 – 150</option>
-            <option>150 – 300</option>
-            <option>300 – 500</option>
-            <option>500+</option>
+            <option>Under 50</option><option>50 – 150</option><option>150 – 300</option><option>300 – 500</option><option>500+</option>
           </select>
         </div>
       </div>
-      <div class="form-group">
-        <label>Anything Else?</label>
-        <textarea id="fnotes" placeholder="Tell us more about your event, cuisine preferences, special requirements..."></textarea>
-      </div>
+      <div class="fg"><label>Anything Else?</label><textarea id="fnotes" placeholder="Tell us more about your event, cuisine preferences or special requirements..."></textarea></div>
       <button class="submit-btn" onclick="submitForm()">Send My Quote Request</button>
     </div>
     <div class="form-success" id="successMsg">
@@ -407,11 +365,11 @@ footer{background:#0f0f1a;color:rgba(255,255,255,.4);padding:3rem;display:flex;a
 <footer>
   <div class="footer-logo">B<span>o</span>wld</div>
   <div class="footer-mid">
-    <div style="color:rgba(255,255,255,.55);margin-bottom:.3rem;">African · Açaí · Poké · Mexican · Pasta</div>
-    <div>Based in Mechelen &nbsp;·&nbsp; info@bowld.be &nbsp;·&nbsp; © 2026 Kizuri BV</div>
+    African · Açaí · Poké · Mexican · Pasta<br>
+    Based in Mechelen &nbsp;·&nbsp; info@bowld.be &nbsp;·&nbsp; © 2026 Kizuri BV
   </div>
   <div class="footer-links">
-    <a href="#cuisine">Food</a>
+    <a href="#food">Food</a>
     <a href="#catering">Catering</a>
     <a href="#quote">Quote</a>
     <a href="https://www.bowld.be/general-terms-and-conditions.html" target="_blank">Terms</a>
@@ -419,30 +377,49 @@ footer{background:#0f0f1a;color:rgba(255,255,255,.4);padding:3rem;display:flex;a
 </footer>
 
 <script>
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      e.target.classList.add('up');
-    }
-  });
-},{threshold:0.12});
-document.querySelectorAll('.reveal,.reveal-l,.reveal-r,.divider').forEach(el=>obs.observe(el));
-
-document.addEventListener('mousemove',e=>{
-  const x=(e.clientX/window.innerWidth-.5)*22;
-  const y=(e.clientY/window.innerHeight-.5)*22;
-  const b1=document.querySelector('.blob1');
-  const b2=document.querySelector('.blob2');
-  const b3=document.querySelector('.blob3');
-  if(b1) b1.style.transform=`translate(${x*1.3}px,${y*1.3}px)`;
-  if(b2) b2.style.transform=`translate(${-x}px,${-y}px)`;
-  if(b3) b3.style.transform=`translate(${x*.6}px,${y*.6}px)`;
-});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
+},{threshold:0.1});
+document.querySelectorAll('.s-up,.s-left,.s-right').forEach(el=>obs.observe(el));
 
 window.addEventListener('scroll',()=>{
-  const nav=document.querySelector('nav');
-  nav.style.boxShadow=window.scrollY>30?'0 4px 24px rgba(0,0,0,.07)':'none';
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);
 });
+
+document.addEventListener('mousemove',e=>{
+  const x=(e.clientX/window.innerWidth-.5)*25;
+  const y=(e.clientY/window.innerHeight-.5)*25;
+  const blobs=document.querySelectorAll('.hero-blob');
+  blobs.forEach((b,i)=>{
+    const dir=i%2===0?1:-1;
+    b.style.transform=`translate(${x*dir*(i+1)*.4}px,${y*dir*(i+1)*.4}px)`;
+  });
+});
+
+// Staggered food cards
+const cards=document.querySelectorAll('.food-card');
+const cardObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      cards.forEach((c,i)=>setTimeout(()=>c.classList.add('in'),i*70));
+      cardObs.disconnect();
+    }
+  });
+},{threshold:0.1});
+if(cards.length) cardObs.observe(cards[0]);
+
+// Staggered event chips
+const chips=document.querySelectorAll('.event-chip');
+const chipObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      chips.forEach((c,i)=>setTimeout(()=>{c.style.opacity='1';c.style.transform='none';},i*100));
+      chipObs.disconnect();
+    }
+  });
+},{threshold:0.2});
+chips.forEach(c=>{c.style.opacity='0';c.style.transform='translateX(20px)';c.style.transition='opacity .5s ease,transform .5s ease';});
+if(chips.length) chipObs.observe(chips[0]);
 
 function submitForm(){
   const v=[
