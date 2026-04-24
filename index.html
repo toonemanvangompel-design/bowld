@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -50,14 +50,11 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07);}
 @keyframes bounceRing{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
 
-/* HERO IMAGE */
-.hero-truck{position:absolute;bottom:0;right:5%;width:45%;max-width:580px;opacity:0;animation:fadeUp .9s .8s forwards;pointer-events:none;}
-.hero-truck img{width:100%;border-radius:24px 24px 0 0;object-fit:cover;height:420px;box-shadow:0 -20px 60px rgba(0,0,0,.15);}
-
 /* PHOTO STRIP */
 #photostrip{background:#fff;padding:4rem 0;overflow:hidden;}
-.strip-track{display:flex;gap:1.2rem;animation:stripSlide 28s linear infinite;width:max-content;}
-.strip-track img{height:240px;width:340px;object-fit:cover;border-radius:16px;flex-shrink:0;}
+.strip-track{display:flex;gap:1.2rem;animation:stripSlide 32s linear infinite;width:max-content;align-items:center;}
+.strip-slot{width:320px;height:220px;border-radius:16px;flex-shrink:0;overflow:hidden;background:#f0ece4;}
+.strip-slot img{width:100%;height:100%;object-fit:cover;display:block;}
 @keyframes stripSlide{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
 /* FOOD SECTION */
@@ -249,27 +246,24 @@ footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:cente
     <button class="btn-primary" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
     <button class="btn-outline" onclick="document.getElementById('food').scrollIntoView({behavior:'smooth'})">Discover Our Food</button>
   </div>
-  <div class="hero-truck">
-    <img src="https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?w=900&q=80" alt="Food truck at event"/>
-  </div>
   <div class="hero-scroll"><div class="scroll-ring"></div></div>
 </section>
 
 <!-- PHOTO STRIP -->
 <div id="photostrip">
   <div class="strip-track">
-    <img src="https://source.unsplash.com/680x240/?food,bowl" alt="Fresh food bowl"/>
-    <img src="https://source.unsplash.com/680x240/?tacos,mexican" alt="Mexican tacos"/>
-    <img src="https://source.unsplash.com/680x240/?streetfood,event" alt="Street food event"/>
-    <img src="https://source.unsplash.com/680x240/?colorful,food" alt="Colourful dish"/>
-    <img src="https://source.unsplash.com/680x240/?poke,bowl" alt="Poké bowl"/>
-    <img src="https://source.unsplash.com/680x240/?catering,party" alt="Catering event"/>
-    <img src="https://source.unsplash.com/680x240/?food,fresh" alt="Fresh food"/>
-    <img src="https://source.unsplash.com/680x240/?pasta,italian" alt="Pasta"/>
-    <img src="https://source.unsplash.com/680x240/?african,food" alt="African food"/>
-    <img src="https://source.unsplash.com/680x240/?acai,bowl" alt="Açaí bowl"/>
-    <img src="https://source.unsplash.com/680x240/?foodtruck,festival" alt="Food truck"/>
-    <img src="https://source.unsplash.com/680x240/?wedding,catering" alt="Wedding catering"/>
+    <div class="strip-slot"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=640&q=80&auto=format&fit=crop" alt="Bowl"/></div>
+    <div class="strip-slot"><img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=640&q=80&auto=format&fit=crop" alt="Tacos"/></div>
+    <div class="strip-slot"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=640&q=80&auto=format&fit=crop" alt="Dish"/></div>
+    <div class="strip-slot"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=640&q=80&auto=format&fit=crop" alt="Poké"/></div>
+    <div class="strip-slot"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=640&q=80&auto=format&fit=crop" alt="Food"/></div>
+    <div class="strip-slot"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=640&q=80&auto=format&fit=crop" alt="Catering"/></div>
+    <div class="strip-slot"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=640&q=80&auto=format&fit=crop" alt="Bowl"/></div>
+    <div class="strip-slot"><img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=640&q=80&auto=format&fit=crop" alt="Tacos"/></div>
+    <div class="strip-slot"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=640&q=80&auto=format&fit=crop" alt="Dish"/></div>
+    <div class="strip-slot"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=640&q=80&auto=format&fit=crop" alt="Poké"/></div>
+    <div class="strip-slot"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=640&q=80&auto=format&fit=crop" alt="Food"/></div>
+    <div class="strip-slot"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=640&q=80&auto=format&fit=crop" alt="Catering"/></div>
   </div>
 </div>
 
@@ -364,9 +358,9 @@ footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:cente
     <div class="s-right">
       <div class="catering-visual">
       <div class="catering-img-grid s-right">
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Catering event"/>
-          <img src="https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?w=400&q=80" alt="Food truck"/>
-          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80" alt="Event food"/>
+          <div class="img-slot"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format&fit=crop" alt="Catering event"/></div>
+          <div class="img-slot"><img src="https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?w=400&q=80&auto=format&fit=crop" alt="Food truck"/></div>
+          <div class="img-slot"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80&auto=format&fit=crop" alt="Event food"/></div>
         </div>
         <div class="cat-big">
           <h3>Big or small, we show up for it all.</h3>
