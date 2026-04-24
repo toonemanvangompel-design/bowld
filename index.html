@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -50,6 +50,16 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07);}
 @keyframes bounceRing{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
 
+/* HERO IMAGE */
+.hero-truck{position:absolute;bottom:0;right:5%;width:45%;max-width:580px;opacity:0;animation:fadeUp .9s .8s forwards;pointer-events:none;}
+.hero-truck img{width:100%;border-radius:24px 24px 0 0;object-fit:cover;height:420px;box-shadow:0 -20px 60px rgba(0,0,0,.15);}
+
+/* PHOTO STRIP */
+#photostrip{background:#fff;padding:4rem 0;overflow:hidden;}
+.strip-track{display:flex;gap:1.2rem;animation:stripSlide 28s linear infinite;width:max-content;}
+.strip-track img{height:240px;width:340px;object-fit:cover;border-radius:16px;flex-shrink:0;}
+@keyframes stripSlide{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
 /* FOOD SECTION */
 #food{padding:8rem 2rem;background:#fff;}
 .food-header{text-align:center;margin-bottom:5rem;}
@@ -86,43 +96,51 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07);}
 .concept-visual-label{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:.5rem;}
 
 /* CATERING */
-#catering{padding:8rem 2rem;background:#fff;}
+#catering{padding:8rem 2rem;background:#fff;overflow:hidden;}
 .catering-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
 .catering-text .section-eyebrow{color:var(--green);}
 .catering-text p{color:var(--text-light);line-height:1.9;font-size:1rem;margin-bottom:1.2rem;}
-.catering-features{display:flex;flex-direction:column;gap:.8rem;margin:1.5rem 0 2.5rem;}
-.cat-feat{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.3rem;background:var(--cream);border-radius:10px;border-left:3px solid var(--green);}
-.cat-feat:nth-child(2){border-left-color:var(--orange);}
-.cat-feat:nth-child(3){border-left-color:var(--purple);}
-.cat-feat:nth-child(4){border-left-color:var(--yellow);}
-.cat-feat h4{font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:.2rem;}
-.cat-feat p{font-size:.8rem;color:var(--text-light);margin:0;line-height:1.5;}
-.catering-cards{display:flex;flex-direction:column;gap:1.2rem;}
-.cat-big{background:linear-gradient(135deg,var(--green),var(--green-light));border-radius:16px;padding:2.5rem;color:#fff;}
-.cat-big h3{font-size:1.5rem;font-weight:900;letter-spacing:-1px;margin-bottom:.7rem;line-height:1.1;}
-.cat-big p{opacity:.8;line-height:1.7;font-size:.92rem;}
-.cat-smalls{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.cat-sm{border-radius:12px;padding:1.4rem;border-top:3px solid var(--orange);}
-.cat-sm:first-child{background:var(--orange-pale);}
-.cat-sm:last-child{background:var(--purple-pale);border-top-color:var(--purple);}
-.cat-sm h4{font-size:.9rem;font-weight:800;color:var(--dark);margin-bottom:.3rem;}
-.cat-sm p{font-size:.78rem;color:var(--text-light);line-height:1.5;}
+.catering-bubbles{display:flex;flex-direction:column;gap:1.2rem;margin:2rem 0 2.5rem;}
+.cat-bubble{background:linear-gradient(135deg,#b7e4c7,#d8f3dc);border-radius:50px;padding:1.1rem 1.8rem;display:flex;align-items:center;gap:1.1rem;cursor:default;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s;box-shadow:0 4px 20px rgba(0,0,0,.05);}
+.cat-bubble:nth-child(2){background:linear-gradient(135deg,#ffb8a0,#fde8dc);}
+.cat-bubble:nth-child(3){background:linear-gradient(135deg,#d4aaff,#f0d9f7);}
+.cat-bubble:nth-child(4){background:linear-gradient(135deg,#ffe066,#fff8d6);}
+.cat-bubble:hover{transform:translateX(10px) scale(1.02);box-shadow:0 10px 30px rgba(0,0,0,.1);}
+.cat-bubble-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.ci1{background:var(--green-pale);}
+.ci2{background:var(--orange-pale);}
+.ci3{background:var(--purple-pale);}
+.ci4{background:var(--yellow-pale);}
+.cat-bubble-text h4{font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:.1rem;}
+.cat-bubble-text p{font-size:.8rem;color:var(--text-light);margin:0;line-height:1.4;}
+.catering-visual{position:relative;display:flex;flex-direction:column;gap:1.2rem;}
+.cat-big{background:linear-gradient(135deg,var(--green),var(--green-light));border-radius:28px;padding:2.8rem;color:#fff;transition:transform .3s;cursor:default;}
+.cat-big:hover{transform:rotate(-1deg) scale(1.02);}
+.cat-big h3{font-size:1.6rem;font-weight:900;letter-spacing:-1px;margin-bottom:.8rem;line-height:1.1;}
+.cat-big p{opacity:.82;line-height:1.75;font-size:.93rem;}
+.cat-occasions{display:flex;flex-wrap:wrap;gap:.7rem;}
+.cat-occ{background:#fff;border-radius:50px;padding:.55rem 1.2rem;font-size:.82rem;font-weight:700;color:var(--dark);cursor:default;transition:all .25s;box-shadow:0 3px 12px rgba(0,0,0,.07);}
+.cat-occ:hover{background:var(--orange);color:#fff;transform:translateY(-2px);box-shadow:0 8px 20px rgba(231,111,81,.3);}
 
 /* HOW IT WORKS */
-#how{padding:8rem 2rem;background:var(--cream);}
+#how{padding:8rem 2rem;background:var(--cream);overflow:hidden;}
 .how-inner{max-width:1000px;margin:0 auto;}
 .how-header{text-align:center;margin-bottom:5rem;}
 .how-header .section-eyebrow{color:var(--purple);}
-.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.step-card{background:#fff;border-radius:16px;padding:2.5rem;transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
-.step-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.08);}
-.step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:16px 16px 0 0;}
-.step-card:nth-child(1)::before{background:var(--green);}
-.step-card:nth-child(2)::before{background:var(--orange);}
-.step-card:nth-child(3)::before{background:var(--purple);}
-.step-n{font-size:3.5rem;font-weight:900;letter-spacing:-3px;margin-bottom:1.2rem;line-height:1;color:rgba(0,0,0,.06);}
-.step-card h4{font-size:1rem;font-weight:800;color:var(--dark);margin-bottom:.6rem;}
-.step-card p{font-size:.87rem;color:var(--text-light);line-height:1.75;}
+.steps-track{display:flex;flex-direction:column;gap:0;max-width:700px;margin:0 auto;}
+.step-row{display:grid;grid-template-columns:80px 1fr;gap:2rem;align-items:stretch;position:relative;}
+.step-left{display:flex;flex-direction:column;align-items:center;gap:0;}
+.step-circle{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;color:#fff;flex-shrink:0;transition:transform .3s;}
+.sc1{background:linear-gradient(135deg,var(--green),var(--green-light));}
+.sc2{background:linear-gradient(135deg,var(--orange),var(--orange-light));}
+.sc3{background:linear-gradient(135deg,var(--purple),var(--purple-light));}
+.step-row:hover .step-circle{transform:scale(1.15);}
+.step-line{width:2px;flex:1;background:linear-gradient(to bottom,rgba(0,0,0,.08),transparent);margin:8px 0;}
+.step-row:last-child .step-line{display:none;}
+.step-content{background:#fff;border-radius:20px;padding:2rem 2.2rem;margin-bottom:1.5rem;box-shadow:0 6px 30px rgba(0,0,0,.06);transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s;}
+.step-row:hover .step-content{transform:translateX(8px);box-shadow:0 12px 40px rgba(0,0,0,.1);}
+.step-content h4{font-size:1.05rem;font-weight:800;color:var(--dark);margin-bottom:.5rem;}
+.step-content p{font-size:.88rem;color:var(--text-light);line-height:1.75;}
 
 /* QUOTE */
 #quote{padding:8rem 2rem;background:linear-gradient(160deg,var(--green-pale) 0%,var(--orange-pale) 60%,var(--purple-pale) 100%);}
@@ -160,10 +178,49 @@ footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:cente
 @media(max-width:800px){
   nav{padding:1rem 1.5rem;}
   .nav-links{display:none;}
-  #food,#concept,#catering,#how,#quote{padding:5rem 1.5rem;}
-  .concept-inner,.catering-inner{grid-template-columns:1fr;}
-  .steps-grid,.cat-smalls,.form-row{grid-template-columns:1fr;}
+  #food,#concept,#catering,#how,#quote{padding:4rem 1.2rem;}
+
+  /* Hero */
+  .hero-title{font-size:clamp(2.6rem,12vw,4rem);letter-spacing:-2px;margin-bottom:1.2rem;}
+  .hero-sub{font-size:.95rem;margin-bottom:2rem;padding:0 .3rem;}
+  .hero-eyebrow{font-size:.68rem;letter-spacing:2px;margin-bottom:1.2rem;}
+  .hero-btns{flex-direction:column;align-items:center;gap:.8rem;}
+  .btn-primary,.btn-outline{width:100%;max-width:300px;text-align:center;}
+
+  /* Food cards */
+  .food-grid{grid-template-columns:1fr;gap:1rem;}
+  .food-card{padding:2rem 1.5rem;}
+  .food-card h3{font-size:1.3rem;}
+
+  /* Section titles */
+  .section-title{font-size:clamp(1.7rem,7vw,2.3rem);letter-spacing:-1px;}
+  .section-sub{font-size:.92rem;}
+
+  /* Concept */
+  .concept-inner{grid-template-columns:1fr;gap:2.5rem;}
+  .concept-visual{padding:1.8rem;}
+  .event-chip{font-size:.82rem;padding:.7rem 1.1rem;}
+
+  /* Catering */
+  .catering-inner{grid-template-columns:1fr;gap:2.5rem;}
+  .cat-big h3{font-size:1.3rem;}
+  .cat-bubble{padding:.9rem 1.2rem;}
+  .cat-occasions{gap:.5rem;}
+  /* Steps */
+  .step-row{grid-template-columns:56px 1fr;gap:1rem;}
+  .step-content{padding:1.5rem;}
+
+  /* Steps */
+  .steps-grid{grid-template-columns:1fr;gap:1rem;}
+  .step-card{padding:1.8rem;}
+
+  /* Form */
+  .form-row{grid-template-columns:1fr;}
+  .qform{padding:1.8rem 1.2rem;}
+
+  /* Footer */
   footer{flex-direction:column;text-align:center;padding:2rem 1.5rem;}
+  .footer-links{justify-content:center;flex-wrap:wrap;gap:1rem;}
 }
 </style>
 </head>
@@ -192,8 +249,29 @@ footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:cente
     <button class="btn-primary" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
     <button class="btn-outline" onclick="document.getElementById('food').scrollIntoView({behavior:'smooth'})">Discover Our Food</button>
   </div>
+  <div class="hero-truck">
+    <img src="https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?w=900&q=80" alt="Food truck at event"/>
+  </div>
   <div class="hero-scroll"><div class="scroll-ring"></div></div>
 </section>
+
+<!-- PHOTO STRIP -->
+<div id="photostrip">
+  <div class="strip-track">
+    <img src="https://source.unsplash.com/680x240/?food,bowl" alt="Fresh food bowl"/>
+    <img src="https://source.unsplash.com/680x240/?tacos,mexican" alt="Mexican tacos"/>
+    <img src="https://source.unsplash.com/680x240/?streetfood,event" alt="Street food event"/>
+    <img src="https://source.unsplash.com/680x240/?colorful,food" alt="Colourful dish"/>
+    <img src="https://source.unsplash.com/680x240/?poke,bowl" alt="Poké bowl"/>
+    <img src="https://source.unsplash.com/680x240/?catering,party" alt="Catering event"/>
+    <img src="https://source.unsplash.com/680x240/?food,fresh" alt="Fresh food"/>
+    <img src="https://source.unsplash.com/680x240/?pasta,italian" alt="Pasta"/>
+    <img src="https://source.unsplash.com/680x240/?african,food" alt="African food"/>
+    <img src="https://source.unsplash.com/680x240/?acai,bowl" alt="Açaí bowl"/>
+    <img src="https://source.unsplash.com/680x240/?foodtruck,festival" alt="Food truck"/>
+    <img src="https://source.unsplash.com/680x240/?wedding,catering" alt="Wedding catering"/>
+  </div>
+</div>
 
 <!-- FOOD -->
 <section id="food">
@@ -267,23 +345,42 @@ footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:cente
       <h2 class="section-title">Turn Every Moment Into a Flavorful Experience</h2>
       <p>Whether you're planning a corporate event, birthday, baby shower or wedding — Bowld delivers fresh, vibrant catering that truly stands out.</p>
       <p>Our dishes are thoughtfully curated, prepared daily with quality ingredients and perfect for sharing.</p>
-      <div class="catering-features">
-        <div class="cat-feat"><div><h4>Fresh & Homemade</h4><p>Every dish prepared daily with care and quality ingredients.</p></div></div>
-        <div class="cat-feat"><div><h4>Fully Flexible</h4><p>Tailored to the size, style and mood of your event.</p></div></div>
-        <div class="cat-feat"><div><h4>Any Occasion</h4><p>From intimate gatherings to large-scale festivals — we handle it all.</p></div></div>
-        <div class="cat-feat"><div><h4>Easy & Convenient</h4><p>We handle everything — you just enjoy the experience.</p></div></div>
+      <div class="catering-bubbles">
+        <div class="cat-bubble">
+          <div class="cat-bubble-text"><h4>Fresh & Homemade</h4><p>Every dish prepared daily with care.</p></div>
+        </div>
+        <div class="cat-bubble">
+          <div class="cat-bubble-text"><h4>Fully Flexible</h4><p>Tailored to the size and style of your event.</p></div>
+        </div>
+        <div class="cat-bubble">
+          <div class="cat-bubble-text"><h4>Any Occasion</h4><p>From intimate gatherings to large-scale festivals.</p></div>
+        </div>
+        <div class="cat-bubble">
+          <div class="cat-bubble-text"><h4>Easy & Convenient</h4><p>We handle everything — you just enjoy it.</p></div>
+        </div>
       </div>
       <button class="btn-primary" onclick="document.getElementById('quote').scrollIntoView({behavior:'smooth'})">Request a Quote</button>
     </div>
     <div class="s-right">
-      <div class="catering-cards">
+      <div class="catering-visual">
+      <div class="catering-img-grid s-right">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Catering event"/>
+          <img src="https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?w=400&q=80" alt="Food truck"/>
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80" alt="Event food"/>
+        </div>
         <div class="cat-big">
           <h3>Big or small, we show up for it all.</h3>
           <p>Tell us what you have in mind and we'll create a catering experience that perfectly matches your guests and occasion.</p>
         </div>
-        <div class="cat-smalls">
-          <div class="cat-sm"><h4>Weddings</h4><p>Make your special day even more memorable with vibrant food.</p></div>
-          <div class="cat-sm"><h4>Corporate</h4><p>Impress your team and clients with something beyond the ordinary.</p></div>
+        <div class="cat-occasions">
+          <div class="cat-occ">Weddings</div>
+          <div class="cat-occ">Corporate Events</div>
+          <div class="cat-occ">Birthdays</div>
+          <div class="cat-occ">Baby Showers</div>
+          <div class="cat-occ">Festivals</div>
+          <div class="cat-occ">Markets & Fairs</div>
+          <div class="cat-occ">Family Days</div>
+          <div class="cat-occ">Team Outings</div>
         </div>
       </div>
     </div>
@@ -298,21 +395,36 @@ footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:cente
       <h2 class="section-title">Ready in Three Steps</h2>
       <p class="section-sub">Booking Bowld for your event is effortless. We handle everything — you just enjoy the experience.</p>
     </div>
-    <div class="steps-grid">
-      <div class="step-card s-up" style="transition-delay:.05s">
-        <div class="step-n">01</div>
-        <h4>Tell Us About Your Event</h4>
-        <p>Fill in our quick quote form with your event type, date, location and number of guests. Takes under two minutes.</p>
+    <div class="steps-track">
+      <div class="step-row s-up" style="transition-delay:.05s">
+        <div class="step-left">
+          <div class="step-circle sc1">01</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>Tell Us About Your Event</h4>
+          <p>Fill in our quick quote form with your event type, date, location and number of guests. Takes under two minutes.</p>
+        </div>
       </div>
-      <div class="step-card s-up" style="transition-delay:.15s">
-        <div class="step-n">02</div>
-        <h4>We Send a Custom Quote</h4>
-        <p>Our team reviews your request and gets back to you within 24 hours with a tailored, no-strings proposal.</p>
+      <div class="step-row s-up" style="transition-delay:.15s">
+        <div class="step-left">
+          <div class="step-circle sc2">02</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>We Send a Custom Quote</h4>
+          <p>Our team reviews your request and gets back to you within 24 hours with a tailored, no-strings proposal.</p>
+        </div>
       </div>
-      <div class="step-card s-up" style="transition-delay:.25s">
-        <div class="step-n">03</div>
-        <h4>We Show Up and Serve</h4>
-        <p>On the day we arrive fully equipped and ready to serve your guests with fresh, world-class street food.</p>
+      <div class="step-row s-up" style="transition-delay:.25s">
+        <div class="step-left">
+          <div class="step-circle sc3">03</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>We Show Up and Serve</h4>
+          <p>On the day we arrive fully equipped and ready to serve your guests with fresh, world-class street food.</p>
+        </div>
       </div>
     </div>
   </div>
