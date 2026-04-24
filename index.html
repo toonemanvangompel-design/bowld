@@ -55,19 +55,25 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07);}
 .hero-sub{font-size:1.1rem;color:var(--muted);max-width:500px;line-height:1.8;margin:0 auto 3rem;opacity:0;animation:up .8s .6s forwards;}
 .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:up .8s .8s forwards;}
 
-/* Floating cuisine tags */
+/* Floating cuisine tags — burst from center */
 .hero-tags{position:absolute;inset:0;pointer-events:none;}
 .htag{
   position:absolute;background:#fff;border-radius:50px;
   padding:.6rem 1.3rem;font-size:.8rem;font-weight:700;color:var(--dark);
-  box-shadow:0 8px 24px rgba(0,0,0,.1);opacity:0;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  opacity:0;
 }
 .htag-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.5rem;}
-.htag:nth-child(1){top:18%;left:6%;animation:tagIn .6s 1.2s forwards,tagBob 4s 1.8s ease-in-out infinite;}
-.htag:nth-child(2){top:22%;right:7%;animation:tagIn .6s 1.5s forwards,tagBob 4.5s 2.1s ease-in-out infinite;}
-.htag:nth-child(3){bottom:28%;left:8%;animation:tagIn .6s 1.8s forwards,tagBob 3.8s 2.4s ease-in-out infinite;}
-.htag:nth-child(4){bottom:25%;right:9%;animation:tagIn .6s 2.1s forwards,tagBob 5s 2.7s ease-in-out infinite;}
-@keyframes tagIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+.htag:nth-child(1){animation:burstTL .7s .8s cubic-bezier(.22,1,.36,1) forwards,tagBob 4s 1.6s ease-in-out infinite;}
+.htag:nth-child(2){animation:burstTR .7s .9s cubic-bezier(.22,1,.36,1) forwards,tagBob 4.5s 1.7s ease-in-out infinite;}
+.htag:nth-child(3){animation:burstBL .7s 1s cubic-bezier(.22,1,.36,1) forwards,tagBob 3.8s 1.8s ease-in-out infinite;}
+.htag:nth-child(4){animation:burstBR .7s 1.1s cubic-bezier(.22,1,.36,1) forwards,tagBob 5s 1.9s ease-in-out infinite;}
+@keyframes burstTL{from{opacity:0;transform:translate(-50%,-50%) scale(.4);}to{opacity:1;transform:translate(calc(-50vw + 8vw),calc(-50% - 140px)) scale(1);}}
+@keyframes burstTR{from{opacity:0;transform:translate(-50%,-50%) scale(.4);}to{opacity:1;transform:translate(calc(50vw - 18vw),calc(-50% - 110px)) scale(1);}}
+@keyframes burstBL{from{opacity:0;transform:translate(-50%,-50%) scale(.4);}to{opacity:1;transform:translate(calc(-50vw + 10vw),calc(-50% + 120px)) scale(1);}}
+@keyframes burstBR{from{opacity:0;transform:translate(-50%,-50%) scale(.4);}to{opacity:1;transform:translate(calc(50vw - 16vw),calc(-50% + 100px)) scale(1);}}
 @keyframes tagBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 
 .scroll-ring{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);width:28px;height:28px;border:2px solid rgba(0,0,0,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:ringBob 2s infinite;}
@@ -144,12 +150,20 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07);}
 
 /* Catering right side */
 .cat-right{display:flex;flex-direction:column;gap:1.2rem;}
-.mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:150px 150px;gap:.8rem;}
-.mosaic-item{border-radius:14px;}
-.mosaic-item:first-child{grid-row:span 2;}
-.mi-1{background:linear-gradient(135deg,#1a5c3a,#52b788);}
-.mi-2{background:linear-gradient(135deg,#c44b28,#f4a261);}
-.mi-3{background:linear-gradient(135deg,#5c1a8b,#c77dff);}
+.cat-photo-stack{position:relative;height:320px;margin-bottom:.5rem;}
+.cat-photo-stack .ps-main{
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  border-radius:20px;overflow:hidden;
+  background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&auto=format&fit=crop') center/cover;
+}
+.cat-photo-stack .ps-badge{
+  position:absolute;bottom:1.2rem;right:1.2rem;
+  background:var(--o);color:#fff;
+  border-radius:14px;padding:1rem 1.4rem;
+  font-size:.82rem;font-weight:800;line-height:1.3;
+  box-shadow:0 8px 24px rgba(231,111,81,.4);
+}
+.cat-photo-stack .ps-badge strong{display:block;font-size:1.6rem;letter-spacing:-1px;line-height:1;}
 .cat-card{background:linear-gradient(135deg,var(--g),var(--gl));border-radius:22px;padding:2.2rem;color:#fff;cursor:default;transition:transform .3s;}
 .cat-card:hover{transform:rotate(-1deg) scale(1.02);}
 .cat-card h3{font-size:1.4rem;font-weight:900;letter-spacing:-1px;margin-bottom:.6rem;line-height:1.1;}
@@ -253,8 +267,6 @@ footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:cente
 .s-left{opacity:0;transform:translateX(-44px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
 .s-right{opacity:0;transform:translateX(44px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
 .in{opacity:1!important;transform:none!important;}
-
-/* ─── KEYFRAMES ──────────────────────────────────────────── */
 @keyframes up{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
 
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
@@ -386,10 +398,9 @@ footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:cente
       <button class="btn btn-orange" onclick="scroll2('quote')">Request a Quote</button>
     </div>
     <div class="s-right cat-right">
-      <div class="mosaic">
-        <div class="mosaic-item mi-1"></div>
-        <div class="mosaic-item mi-2"></div>
-        <div class="mosaic-item mi-3"></div>
+      <div class="cat-photo-stack">
+        <div class="ps-main"></div>
+        <div class="ps-badge"><strong>24h</strong>Quote turnaround</div>
       </div>
       <div class="cat-card">
         <h3>Big or small, we show up for it all.</h3>
@@ -488,18 +499,15 @@ footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:cente
 <script>
 function scroll2(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
 
-// Scroll reveal
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
 },{threshold:0.1});
 document.querySelectorAll('.s-up,.s-left,.s-right').forEach(el=>obs.observe(el));
 
-// Nav shadow
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);
 });
 
-// Blob parallax
 document.addEventListener('mousemove',e=>{
   const x=(e.clientX/window.innerWidth-.5)*25;
   const y=(e.clientY/window.innerHeight-.5)*25;
@@ -509,7 +517,6 @@ document.addEventListener('mousemove',e=>{
   });
 });
 
-// Stagger food cards
 const cards=document.querySelectorAll('.food-card');
 const cObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
@@ -518,7 +525,6 @@ const cObs=new IntersectionObserver(entries=>{
 },{threshold:0.1});
 if(cards.length)cObs.observe(cards[0]);
 
-// Stagger chips
 const chips=document.querySelectorAll('.chip');
 const chipObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
@@ -529,14 +535,7 @@ chips.forEach(c=>{c.style.opacity='0';c.style.transform='translateX(20px)';c.sty
 if(chips.length)chipObs.observe(chips[0]);
 
 function submitForm(){
-  const vals=[
-    document.getElementById('fname').value.trim(),
-    document.getElementById('femail').value.trim(),
-    document.getElementById('ftype').value,
-    document.getElementById('fdate').value,
-    document.getElementById('floc').value.trim(),
-    document.getElementById('fguests').value
-  ];
+  const vals=['fname','femail','ftype','fdate','floc','fguests'].map(id=>document.getElementById(id).value.trim());
   if(vals.some(v=>!v)){alert('Please fill in all fields.');return;}
   document.getElementById('quoteForm').style.display='none';
   document.getElementById('successMsg').style.display='block';
