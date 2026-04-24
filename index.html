@@ -40,6 +40,15 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07);}
 .hero-title .accent{color:var(--orange);}
 .hero-sub{font-size:1.1rem;color:var(--text-light);max-width:500px;line-height:1.8;margin:0 auto 3rem;opacity:0;animation:fadeUp .8s .6s forwards;}
 .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .8s forwards;}
+.hero-floating-tags{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.hero-tag-item{position:absolute;background:#fff;border-radius:50px;padding:.6rem 1.3rem;font-size:.8rem;font-weight:700;color:var(--dark);box-shadow:0 8px 24px rgba(0,0,0,.1);opacity:0;animation:tagFloat 3s ease-in-out infinite;}
+.ht1{top:18%;left:6%;animation-delay:1.2s;animation:tagAppear .6s 1.2s forwards, tagFloat 4s 1.8s ease-in-out infinite;}
+.ht2{top:25%;right:7%;animation:tagAppear .6s 1.5s forwards, tagFloat 4.5s 2.1s ease-in-out infinite;}
+.ht3{bottom:28%;left:8%;animation:tagAppear .6s 1.8s forwards, tagFloat 3.8s 2.4s ease-in-out infinite;}
+.ht4{bottom:22%;right:9%;animation:tagAppear .6s 2.1s forwards, tagFloat 5s 2.7s ease-in-out infinite;}
+.ht-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.5rem;}
+@keyframes tagAppear{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+@keyframes tagFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 .btn-primary{background:var(--orange);color:#fff;padding:1rem 2.2rem;border-radius:50px;font-weight:700;font-size:.95rem;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(231,111,81,.35);}
 .btn-outline{background:transparent;color:var(--dark);padding:1rem 2.2rem;border-radius:50px;font-weight:600;font-size:.95rem;border:1.5px solid rgba(0,0,0,.2);cursor:pointer;transition:all .2s;}
@@ -140,7 +149,13 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07);}
 .step-content p{font-size:.88rem;color:var(--text-light);line-height:1.75;}
 
 /* QUOTE */
-#quote{padding:8rem 2rem;background:linear-gradient(160deg,var(--green-pale) 0%,var(--orange-pale) 60%,var(--purple-pale) 100%);}
+#quote{padding:8rem 2rem;position:relative;overflow:hidden;}
+#quote::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80&auto=format&fit=crop') center/cover no-repeat;filter:blur(6px) brightness(.35) saturate(1.4);transform:scale(1.05);z-index:0;}
+#quote::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(45,106,79,.7) 0%,rgba(231,111,81,.5) 60%,rgba(123,45,139,.6) 100%);z-index:1;}
+#quote .quote-inner{position:relative;z-index:2;}
+#quote .quote-header .section-eyebrow{color:var(--orange-light);}
+#quote .quote-header .section-title{color:#fff;}
+#quote .quote-header .section-sub{color:rgba(255,255,255,.75);}
 .quote-inner{max-width:680px;margin:0 auto;}
 .quote-header{text-align:center;margin-bottom:3.5rem;}
 .quote-header .section-eyebrow{color:var(--orange);}
@@ -239,6 +254,12 @@ footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:cente
   <div class="hero-blob blob1"></div>
   <div class="hero-blob blob2"></div>
   <div class="hero-blob blob3"></div>
+  <div class="hero-floating-tags">
+    <div class="hero-tag-item ht1"><span class="ht-dot" style="background:var(--green-light)"></span>African</div>
+    <div class="hero-tag-item ht2"><span class="ht-dot" style="background:var(--purple-light)"></span>Açaí</div>
+    <div class="hero-tag-item ht3"><span class="ht-dot" style="background:var(--orange)"></span>Mexican</div>
+    <div class="hero-tag-item ht4"><span class="ht-dot" style="background:var(--blue)"></span>Poké</div>
+  </div>
   <div class="hero-eyebrow">Food Truck &nbsp;·&nbsp; Events &nbsp;·&nbsp; Catering &nbsp;·&nbsp; Mechelen</div>
   <h1 class="hero-title">Bold Flavours.<br><span class="accent">Fresh Bowls.</span></h1>
   <p class="hero-sub">Hire our food truck for your event and treat your guests to world-class street food — freshly made on the spot, five cuisines, one unforgettable experience.</p>
