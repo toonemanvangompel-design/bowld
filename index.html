@@ -453,33 +453,33 @@ footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:cente
       <h2 class="section-title">Let's Make Your Event Unforgettable</h2>
       <p class="section-sub" style="color:var(--text-light);max-width:460px;margin:0 auto;">Fill in a few details and we'll come back to you within 24 hours with a custom offer — fast, easy and free.</p>
     </div>
-    <div class="qform s-up" id="quoteForm">
+    <div class="qform s-up" id="quoteForm" style="background:rgba(255,255,255,.15);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.3);">
       <div class="form-row">
-        <div class="fg"><label>Your Name</label><input type="text" id="fname" placeholder="Jane Doe"/></div>
-        <div class="fg"><label>Email Address</label><input type="email" id="femail" placeholder="jane@example.com"/></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.9)">Your Name</label><input type="text" id="fname" placeholder="Jane Doe" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;"/></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.9)">Email Address</label><input type="email" id="femail" placeholder="jane@example.com" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;"/></div>
       </div>
       <div class="form-row">
         <div class="fg">
-          <label>Event Type</label>
-          <select id="ftype">
+          <label style="color:rgba(255,255,255,.9)">Event Type</label>
+          <select id="ftype" style="background:rgba(30,60,40,.8);border:1.5px solid rgba(255,255,255,.3);color:#fff;">
             <option value="">Select type...</option>
             <option>Wedding</option><option>Corporate Event</option><option>Birthday Party</option>
             <option>Baby Shower</option><option>Festival</option><option>Market / Fair</option><option>Other</option>
           </select>
         </div>
-        <div class="fg"><label>Event Date</label><input type="date" id="fdate"/></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.9)">Event Date</label><input type="date" id="fdate" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;"/></div>
       </div>
       <div class="form-row">
-        <div class="fg"><label>Location</label><input type="text" id="floc" placeholder="City or address"/></div>
+        <div class="fg"><label style="color:rgba(255,255,255,.9)">Location</label><input type="text" id="floc" placeholder="City or address" style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;"/></div>
         <div class="fg">
-          <label>Expected Guests</label>
-          <select id="fguests">
+          <label style="color:rgba(255,255,255,.9)">Expected Guests</label>
+          <select id="fguests" style="background:rgba(30,60,40,.8);border:1.5px solid rgba(255,255,255,.3);color:#fff;">
             <option value="">How many people?</option>
             <option>Under 50</option><option>50 – 150</option><option>150 – 300</option><option>300 – 500</option><option>500+</option>
           </select>
         </div>
       </div>
-      <div class="fg"><label>Anything Else?</label><textarea id="fnotes" placeholder="Tell us more about your event, cuisine preferences or special requirements..."></textarea></div>
+      <div class="fg"><label style="color:rgba(255,255,255,.9)">Anything Else?</label><textarea id="fnotes" placeholder="Tell us more..." style="background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.3);color:#fff;"></textarea></div>
       <button class="submit-btn" onclick="submitForm()">Send My Quote Request</button>
     </div>
     <div class="form-success" id="successMsg">
