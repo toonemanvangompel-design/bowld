@@ -71,12 +71,6 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07);}
 .htag:nth-child(3){animation:burstBL .9s .8s cubic-bezier(.34,1.56,.64,1) forwards;}
 .htag:nth-child(4){animation:burstBR .9s .9s cubic-bezier(.34,1.56,.64,1) forwards;}
 
-/* After burst, each tag bobs in place using its final position */
-.htag:nth-child(1).burst{animation:tagBobTL 4s ease-in-out infinite;}
-.htag:nth-child(2).burst{animation:tagBobTR 4.5s ease-in-out infinite;}
-.htag:nth-child(3).burst{animation:tagBobBL 3.8s ease-in-out infinite;}
-.htag:nth-child(4).burst{animation:tagBobBR 5s ease-in-out infinite;}
-
 @keyframes burstTL{
   0%{opacity:0;transform:translate(-50%,-50%) scale(.2) rotate(0deg);}
   60%{opacity:1;transform:translate(calc(-38vw),-220px) scale(1.1) rotate(-4deg);}
@@ -97,10 +91,29 @@ nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07);}
   60%{opacity:1;transform:translate(calc(26vw),160px) scale(1.1) rotate(-3deg);}
   100%{opacity:1;transform:translate(calc(24vw),148px) scale(1) rotate(-2deg);}
 }
-@keyframes tagBobTL{0%,100%{transform:translate(calc(-38vw),-200px) rotate(-2deg);}50%{transform:translate(calc(-38vw),-210px) rotate(-2deg);}}
-@keyframes tagBobTR{0%,100%{transform:translate(calc(26vw),-175px) rotate(2deg);}50%{transform:translate(calc(26vw),-185px) rotate(2deg);}}
-@keyframes tagBobBL{0%,100%{transform:translate(calc(-34vw),155px) rotate(2deg);}50%{transform:translate(calc(-34vw),145px) rotate(2deg);}}
-@keyframes tagBobBR{0%,100%{transform:translate(calc(24vw),148px) rotate(-2deg);}50%{transform:translate(calc(24vw),138px) rotate(-2deg);}}
+
+/* Bob animations that include the final position */
+@keyframes tagBobTL{
+  0%,100%{opacity:1;transform:translate(calc(-38vw),-200px) rotate(-2deg);}
+  50%{opacity:1;transform:translate(calc(-38vw),-212px) rotate(-2deg);}
+}
+@keyframes tagBobTR{
+  0%,100%{opacity:1;transform:translate(calc(26vw),-175px) rotate(2deg);}
+  50%{opacity:1;transform:translate(calc(26vw),-187px) rotate(2deg);}
+}
+@keyframes tagBobBL{
+  0%,100%{opacity:1;transform:translate(calc(-34vw),155px) rotate(2deg);}
+  50%{opacity:1;transform:translate(calc(-34vw),143px) rotate(2deg);}
+}
+@keyframes tagBobBR{
+  0%,100%{opacity:1;transform:translate(calc(24vw),148px) rotate(-2deg);}
+  50%{opacity:1;transform:translate(calc(24vw),136px) rotate(-2deg);}
+}
+
+.htag.burst-done:nth-child(1){animation:tagBobTL 4s ease-in-out infinite;}
+.htag.burst-done:nth-child(2){animation:tagBobTR 4.5s ease-in-out infinite;}
+.htag.burst-done:nth-child(3){animation:tagBobBL 3.8s ease-in-out infinite;}
+.htag.burst-done:nth-child(4){animation:tagBobBR 5s ease-in-out infinite;}
 
 .scroll-ring{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);width:28px;height:28px;border:2px solid rgba(0,0,0,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:ringBob 2s infinite;}
 .scroll-ring::after{content:'';width:6px;height:6px;background:var(--o);border-radius:50%;}
@@ -521,10 +534,10 @@ footer{background:var(--dark);padding:2.5rem 3rem;display:flex;align-items:cente
 </footer>
 
 <script>
-// Burst tags then switch to position-aware bob
+// Burst tags — after burst completes switch to position-aware bob
 document.querySelectorAll('.htag').forEach((tag, i) => {
-  const delays = [1500, 1600, 1700, 1800];
-  setTimeout(() => tag.classList.add('burst'), delays[i]);
+  const burstDuration = [1500, 1600, 1700, 1800]; // ms after page load
+  setTimeout(() => tag.classList.add('burst-done'), burstDuration[i]);
 });
 
 function scroll2(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
